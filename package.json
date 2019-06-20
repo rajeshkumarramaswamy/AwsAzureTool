@@ -3,9 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@azure/ms-rest-nodeauth": "^0.9.3",
+    "@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^3.0.2",
+    "adal-node": "^0.1.28",
+    "aws-sdk": "^2.449.0",
+    "axios": "^0.18.0",
+    "azure-arm-compute": "^10.0.0",
+    "azure-arm-network": "^13.0.0",
+    "azure-arm-storage": "^8.1.0",
+    "azure-storage": "^2.10.3",
+    "lodash": "^4.17.11",
+    "material-ui-icons": "^1.0.0-beta.36",
+    "ms-rest": "^2.5.0",
+    "ms-rest-azure": "^2.6.0",
     "react": "^16.8.6",
+    "react-adal": "^0.4.22",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.0"
+    "react-scripts": "3.0.0",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
