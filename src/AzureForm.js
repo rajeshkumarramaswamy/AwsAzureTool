@@ -152,7 +152,9 @@ class AwsForm extends React.Component {
         const { ak, ci, ti, si, result } = this.state;
         console.log(result);
         return (
-            <Grid>
+            <Grid
+                container
+            >
                 <div>
                     <form className={classes.container} noValidate autoComplete="off">
                         <TextField

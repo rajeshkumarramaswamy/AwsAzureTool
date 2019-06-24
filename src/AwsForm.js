@@ -12,6 +12,8 @@ var AWS = require('aws-sdk');
 
 
 
+  
+
 const styles = theme => ({
     textField: {
         marginLeft: theme.spacing.unit,
@@ -36,8 +38,8 @@ class AwsForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            ak: '',
-            sk: '',
+            ak: 'AKIAJOBYWMMYBKRPLIDA',
+            sk: 'ZvfItDJzTYJmF8AQTNALrNWJ3PznkojrOm6SmE1H',
             isLoading: false,
             result: false,
             regions: false,
@@ -50,7 +52,7 @@ class AwsForm extends React.Component {
         this.delayedCallback = debounce((name, event) => {
             // `event.target` is accessible now
             this.setState({[name]: event.target.value})
-        }, 3000);
+        }, 100);
     }
 
 
@@ -73,10 +75,10 @@ class AwsForm extends React.Component {
 
     handleSubmit = () => {
         let self = this;
-        self.setState({isLoading: true})
+        self.setState({isLoading: true, })
         AWS.config = new AWS.Config();
-        AWS.config.accessKeyId = 'AKIAJOBYWMMYBKRPLIDA';
-        AWS.config.secretAccessKey = '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';
+        AWS.config.accessKeyId = self.state.ak;
+        AWS.config.secretAccessKey = self.state.sk;
         AWS.config.region = "us-east-1";
         let ec2 = new AWS.EC2({region: 'us-east-1', maxRetries: 15, apiVersion: '2014-10-01'});
         const params = {}
@@ -100,13 +102,14 @@ class AwsForm extends React.Component {
         const { ak, sk, isLoading, result, apiError, regions } = this.state;
         let objResult = [];
         let allowed = ['InstanceId', 'KeyName','InstanceType', 'Platform']
-        console.log('^^^^^^', ak, sk);
         let header = result && result.map((instances) => {
             // console.log(Object.keys(instances['Instances'][0]).filter(key => allowed.includes(key)))
             // let obj = instances['Instances'][0];
             objResult.push(instances['Instances'][0])
         })
+        console.log('^^^^^^', objResult);
         return (
+            <>
             <Grid
                 container
                 direction="row"
@@ -162,17 +165,22 @@ class AwsForm extends React.Component {
                         onClose={this.handleSnackBarClose}
                     />
                 }
+                
+                {
+                    result && !isLoading && 
+                    <div>
+                        <CustomTable headerList={objResult} bodyObj={objResult} />
+                    </div>
+                }
+                
+            </Grid>
+            <Grid>
                 {
                     isLoading ?
                     <CircularProgress /> : null
                 }
-                {
-                    result && !isLoading && 
-                    <div>
-                        <CustomTable headerList={allowed} bodyObj={objResult} />
-                    </div>
-                }
             </Grid>
+            </>
         );
     }
 }

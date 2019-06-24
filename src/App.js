@@ -1,13 +1,16 @@
 import React from 'react';
 import './App.css';
-import TabContainer from './Navbar';
+import MainComponent from './Components/MainComponent';
+import SemNavbar from './SemanticComponents/SemNavbar';
 
 
 function App() {
   return (
     <div className="App">
       <div className="customTab">
-      <TabContainer />
+      {/* <TabContainer / */}
+      {/* <MainComponent /> */}
+      <SemNavbar />
       </div>
     </div>
   );

@@ -13,7 +13,6 @@ import * as constants from './constants';
 
 
 
-
 const styles = theme => ({
   root: {
     width: '100%',
@@ -24,7 +23,6 @@ const styles = theme => ({
     minWidth: 700,
   },
 });
-
 
 class CustomTable extends React.Component {
   constructor(props) {
