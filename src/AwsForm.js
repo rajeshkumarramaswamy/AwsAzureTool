@@ -38,8 +38,8 @@ class AwsForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            ak: 'AKIAJOBYWMMYBKRPLIDA',
-            sk: 'ZvfItDJzTYJmF8AQTNALrNWJ3PznkojrOm6SmE1H',
+            ak: '',
+            sk: '',
             isLoading: false,
             result: false,
             regions: false,
