@@ -18,7 +18,7 @@
     "ms-rest": "^2.5.0",
     "ms-rest-azure": "^2.6.0",
     "react": "^16.8.6",
-    "react-adal": "^0.4.22",
+    "react-adal": "^0.5.1",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.0",
     "semantic-ui-css": "^2.4.1",
